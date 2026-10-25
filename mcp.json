@@ -1,0 +1,57 @@
+{
+  "mcpServers": {
+    "niels-bohr-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "BOHR",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "calculate_bohr_orbit_transitions",
+          "description": "Computes angular momentum quantization, Rydberg wavelength transitions and orbital electron radii",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "atomic_number_z": {
+                "type": "integer"
+              },
+              "initial_n": {
+                "type": "integer"
+              },
+              "final_n": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "initial_n",
+              "final_n"
+            ]
+          }
+        },
+        {
+          "name": "evaluate_quantum_complementarity",
+          "description": "Analyzes wave-particle mutually exclusive observables and measurement decoherence probabilities",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "interferometer_phase": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "interferometer_phase"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
